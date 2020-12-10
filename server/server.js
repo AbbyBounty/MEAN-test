@@ -39,18 +39,18 @@ const express=require('express')
 
 const app=express()
 
+const routerIndex=require('./routes/index')
+const categoryIndex=require('./routes/category')
 
 
-function log(req,res,next){
-    next()
-}
 
-app.use(log)
+app.use('/',routerIndex)
+app.use('/',categoryIndex)
  
-app.get('/',(req,res)=>{
-    res.end("hello from GET")
-})
+
 
 app.listen(8080,'0.0.0.0',()=>{
     console.log('server started')
 })
+
+
