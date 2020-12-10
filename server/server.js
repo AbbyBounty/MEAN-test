@@ -12,9 +12,24 @@ app.get('/', (req, res) => {
     res.send(`hello`)
 })
 
-app.post('/{id}', (req, res) => {
+app.post('/', (req, res) => {
 
 
-    res.send(req.query(id))
+    res.send(req.body())
+
+})
+
+
+app.put('/', (req, res) => {
+
+
+    res.send(req.body())
+
+})
+
+app.delete('/', (req, res) => {
+
+
+    res.send(req.body())
 
 })
