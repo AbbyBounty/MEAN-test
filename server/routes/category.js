@@ -1,6 +1,6 @@
 
 const express=require('express')
-
+const mysql2=require('mysql2')
 const router=express.Router()
 
 const categories=[
@@ -12,8 +12,20 @@ const categories=[
 ]
 
 router.get('/category',(req,res)=>{
+    const connection=mysql2.createConnection({
+        host:'localhost',
+        user:'root',
+        password:'abhicompmit',
+        port:3306,
+        database:'mean'
+    })
     
-    res.send(categories)
+    const sql='select * from category'
+    connection.query(sql,(error,result)=>{
+        connection.close()
+        res.send(result)
+    })
+   
 })
 
 router.post('/category',(req,res)=>{
