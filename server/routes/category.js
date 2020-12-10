@@ -17,8 +17,16 @@ router.get('/category',(req,res)=>{
 })
 
 router.post('/category',(req,res)=>{
-    const body=req.body
-    console.table(body)
+    const {id,title,description}=req.body
+
+categories.push(
+    {
+        id:id,
+        title:title,
+        description:description
+    }
+)
+
     res.send(categories)
 })
 
