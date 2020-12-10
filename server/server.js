@@ -39,6 +39,14 @@ const express=require('express')
 
 const app=express()
 
+
+
+function log(req,res,next){
+    next()
+}
+
+app.use(log)
+
 app.get('/',(req,res)=>{
     res.end("hello from GET")
 })
