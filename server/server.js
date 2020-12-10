@@ -38,12 +38,12 @@
 const express=require('express')
 
 const app=express()
-
+const bodyParser=require('body-parser')
 const routerIndex=require('./routes/index')
 const categoryIndex=require('./routes/category')
 const userIndex=require('./routes/user')
 
-
+app.use(bodyParser.json())
 
 app.use('/',routerIndex)
 app.use('/',categoryIndex)
