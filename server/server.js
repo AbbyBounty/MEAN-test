@@ -46,7 +46,7 @@ function log(req,res,next){
 }
 
 app.use(log)
-
+ 
 app.get('/',(req,res)=>{
     res.end("hello from GET")
 })
