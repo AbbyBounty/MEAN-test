@@ -78,4 +78,28 @@ db.query(statement,(error,result)=>{
 
 
 
+router.put('/profile/:id',(req,res)=>{
+    const {id}=req.params
+
+    console.log(id)
+const statement=`update  user set firstname='${firtname}' where  id='${id}'`
+db.query(statement,(error,result)=>{
+     
+
+    if(error){
+        res.send(util.sendError(error))
+    }
+
+    else{
+
+        res.send(util.sendSuccess(result))
+
+    }
+})
+
+})
+
+
+
+
 module.exports=router
