@@ -3,6 +3,8 @@ const db=require('../db')
 const router=express.Router()
 const crypto=require('crypto-js')
 
+const mailer=require('nodemailer')
+
 router.post('/register',(req,res)=>{
     const {firstname,lastname,email,password}=req.body
 
