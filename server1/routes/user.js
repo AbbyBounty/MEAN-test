@@ -2,6 +2,7 @@ const express=require('express')
 const db=require('../db')
 const router=express.Router()
 const crypto=require('crypto-js')
+const util=require('../utils')
 
 const mailer=require('nodemailer')
 
@@ -40,18 +41,39 @@ db.query(statement,(error,result)=>{
      
 
     if(error){
-        res.send(`error:${error}`)
+        res.send(util.sendError(error))
     }
 
     else{
 
-        res.send(result)
+        res.send(util.sendSuccess(result))
 
     }
 })
 
 })
 
+
+router.get('/profile/:id',(req,res)=>{
+    const {id}=req.params
+
+    console.log(id)
+const statement=`select * from user where id='${id}'`
+db.query(statement,(error,result)=>{
+     
+
+    if(error){
+        res.send(util.sendError(error))
+    }
+
+    else{
+
+        res.send(util.sendSuccess(result))
+
+    }
+})
+
+})
 
 
 
